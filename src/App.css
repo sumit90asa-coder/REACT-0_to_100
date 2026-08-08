@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hover effect for movie posters */
+.movie-poster {
+  transition: transform 0.2s;
+}
+
+.movie-poster:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
