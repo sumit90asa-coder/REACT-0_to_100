@@ -1,36 +1,22 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import HeroBanner from '../components/HeroBanner';
+import MovieRow from '../components/MovieRow';
 
 export default function Movies() {
-  const movies = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
+  const action = Array.from({ length: 10 }, (_, i) => `https://picsum.photos/seed/${i + 50}/200/300`);
+  const scifi = Array.from({ length: 10 }, (_, i) => `https://picsum.photos/seed/${i + 60}/200/300`);
 
   return (
     <>
-      <div 
-        className="d-flex flex-column justify-content-center px-5"
-        style={{
-          height: '70vh',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)), url("https://picsum.photos/id/1018/1200/600")',
-        }}
-      >
-        <h1 className="display-3 fw-bold mb-3">Blockbuster Movies</h1>
-        <p className="lead w-50 mb-4">
-          Action, sci-fi, romance, and thrillers. Discover your next favorite film.
-        </p>
-        <div className="d-flex gap-3">
-          <Button variant="light" className="px-4 py-2 fw-bold text-dark">▶ Play Movie</Button>
-        </div>
-      </div>
-
+      <HeroBanner 
+        title="Inception"
+        description="A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+        bgImage="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2000&auto=format&fit=crop"
+      />
       <Container fluid className="px-4 mt-4 pb-5">
-        <h4 className="mb-3">Top Action Movies</h4>
-        <div className="d-flex overflow-auto movie-row gap-2 mb-5" style={{ scrollbarWidth: 'none' }}>
-          {movies.map((m) => (
-            <img key={m} src={`https://picsum.photos/seed/${m}/200/300`} alt="Movie Poster" style={{ width: '150px', height: '225px', objectFit: 'cover', borderRadius: '4px' }} className="movie-poster" />
-          ))}
-        </div>
+        <MovieRow title="Action & Adventure" movies={action} />
+        <MovieRow title="Sci-Fi Masterpieces" movies={scifi} />
       </Container>
     </>
   );
