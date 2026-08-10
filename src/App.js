@@ -6,6 +6,7 @@ import TVShows from "./pages/TVShows";
 import Movies from "./pages/Movies";
 import Latest from "./pages/Latest";
 import MyList from "./pages/MyList";
+import Profile from "./pages/Profile"; 
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
                 <Nav.Link as={Link} to="/my-list">My List</Nav.Link>
               </Nav>
               <Nav>
-                <Nav.Link href="#profile">
+                
+                <Nav.Link as={Link} to="/profile">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" style={{ width: '32px', borderRadius: '4px' }} />
                 </Nav.Link>
               </Nav>
@@ -36,13 +38,14 @@ function App() {
           </Container>
         </Navbar>
 
-        {/* Page Routing */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tv-shows" element={<TVShows />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/latest" element={<Latest />} />
           <Route path="/my-list" element={<MyList />} />
+          {/* 3. Add the Profile Route */}
+          <Route path="/profile" element={<Profile />} /> 
         </Routes>
 
       </div>
