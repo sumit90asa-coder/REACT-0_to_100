@@ -18,3 +18,32 @@ body {
   transform: scale(1.08);
   z-index: 10;
 }
+body {
+  background-color: #141414; /* Netflix's actual background color */
+  color: white;
+  margin: 0;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-poster {
+  transition: transform 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+/* Navbar Transition Styling */
+.nav-transparent {
+  background-color: transparent !important;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.nav-black {
+  background-color: #141414 !important;
+  transition: background-color 0.4s ease-in-out;
+}
