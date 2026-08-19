@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import HeroBanner from '../components/HeroBanner';
-import MovieRow from '../components/MovieRow';
 import MovieModal from '../components/MovieModal';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Generate some mock data objects instead of just strings
+  // UPDATED: Using placehold.co instead of picsum.photos
   const trending = Array.from({ length: 12 }, (_, i) => ({
     id: i + 1,
     title: `Trending Movie ${i + 1}`,
-    image: `https://picsum.photos/seed/${i + 1}/200/300`
+    // Creates a dark grey placeholder with text
+    image: `https://placehold.co/200x300/222222/FFFFFF/png?text=Trending+${i + 1}`
   }));
 
   const originals = Array.from({ length: 12 }, (_, i) => ({
     id: i + 20,
     title: `Netflix Original ${i + 1}`,
-    image: `https://picsum.photos/seed/${i + 20}/250/350`
+    // Creates a dark red placeholder with text
+    image: `https://placehold.co/250x350/E50914/FFFFFF/png?text=Original+${i + 1}`
   }));
 
-  // Function to handle poster clicks
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
     setShowModal(true);
@@ -32,12 +32,12 @@ export default function Home() {
       <HeroBanner 
         title="Stranger Things"
         description="When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl."
-        bgImage="https://hcdevilsadvocate.com/wp-content/uploads/2019/01/netflix-background-9-900x506.jpg"
+        // UPDATED: Using a highly reliable Unsplash URL for the background
+        bgImage="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop"
       />
       
       <Container fluid className="px-4 mt-4 pb-5 text-white" style={{ marginTop: '-100px', position: 'relative', zIndex: 5 }}>
         
-        {/* We pass handleMovieClick to the rows */}
         <h4 className="mb-3">Trending Now</h4>
         <div className="d-flex overflow-auto movie-row gap-2 pb-3 mb-4">
           {trending.map((movie) => (
@@ -54,7 +54,6 @@ export default function Home() {
 
       </Container>
 
-      {/* The Modal */}
       <MovieModal show={showModal} handleClose={() => setShowModal(false)} movieData={selectedMovie} />
     </>
   );
